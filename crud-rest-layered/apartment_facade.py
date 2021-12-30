@@ -42,7 +42,20 @@ class ApartmentFacade:
             cur.execute(sql)
             rows = cur.fetchall()
 
-        return [list(row) for row in rows]
+        for row in rows:
+            apartment_id, city, street, house_num, floor_num, room_amt, square_amt, cost = list(
+                row)
+
+        return [{
+                'apartment_id': row[0],
+                'city': row[1],
+                'street': row[2],
+                'house_num': row[3],
+                'floor_num': row[4],
+                'room_amt': row[5],
+                'square_amt': row[6],
+                'cost': row[7]
+                } for row in rows]
 
     def __get_from_detail(self, args: dict):
         detail = DetailAPI()
@@ -69,12 +82,30 @@ class ApartmentFacade:
             if spec.is_satisfied_by(apa):
                 filtered_apas.append(apa)
 
-        return filtered_apas
+        return [{
+                'apartment_id': row[0],
+                'city': row[1],
+                'street': row[2],
+                'house_num': row[3],
+                'floor_num': row[4],
+                'room_amt': row[5],
+                'square_amt': row[6],
+                'cost': row[7]
+                } for row in filtered_apas]
 
     def __get_from_search(self, args):
         search = SearchAPI()
         apas = search.get_apartments_by_params(args)
-        return apas
+        return [{
+                'apartment_id': row[0],
+                'city': row[1],
+                'street': row[2],
+                'house_num': row[3],
+                'floor_num': row[4],
+                'room_amt': row[5],
+                'square_amt': row[6],
+                'cost': row[7]
+                }for row in apas]
 
     def get_apartments(self, request):
         if not self.time_of_update or (datetime.datetime.now() - self.time_of_update).days == 1:
