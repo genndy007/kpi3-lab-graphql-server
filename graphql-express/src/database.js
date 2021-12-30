@@ -29,14 +29,7 @@ class Database {
     );
 
     const db = {};
-    // apartment_id | integer
-    //  city         | character varying(64)
-    //  street       | character varying(64)
-    //  house_num    | integer
-    //  floor_num    | integer
-    //  room_amt     | integer
-    //  square_amt   | integer
-    //  cost         | integer
+
     db.apartment = sequelize.define("apartment", {
       apartment_id: {
         type: Sequelize.INTEGER,

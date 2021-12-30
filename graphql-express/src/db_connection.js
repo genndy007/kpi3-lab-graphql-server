@@ -2,7 +2,7 @@ module.exports = {
   HOST: "localhost",
   USER: "postgres",
   PASSWORD: "postgres",
-  DB: "crud_layered",
+  DB: "crud2",
   dialect: "postgres",
   pool: {
     max: 5,
