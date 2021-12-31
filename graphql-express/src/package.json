@@ -1,13 +1,13 @@
 {
   "name": "graphql-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gql server for 3 services application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
-  "author": "",
+  "author": "Kochev Hennadii IP91",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
