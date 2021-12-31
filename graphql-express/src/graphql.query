@@ -1,0 +1,48 @@
+// QUERIES
+
+{
+  get_all_apartments {
+    city
+    street
+    house_num
+    room_amt
+    square_amt
+    cost
+  }
+}
+
+// by id
+{
+  get_apartment(apartment_id: "8") {
+    city
+    street
+    house_num
+    room_amt
+    square_amt
+    cost
+  }
+}
+
+// delete
+{
+  remove_apartment(apartment_id: 65) {
+    apartment_id
+  }
+}
+
+// MUTATIONS 
+
+
+
+mutation {
+  add_apartment(input: {
+    city: "new_city",
+    street: "new_street",
+    house_num: 12,
+    room_amt: 1,
+    square_amt: 24,
+    cost: 213455,
+  }) {
+    apartment_id
+  }
+}
