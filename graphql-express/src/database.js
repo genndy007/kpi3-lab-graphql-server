@@ -22,6 +22,7 @@ class Database {
         define: {
           // prevent sequelize from pluralizing table names
           freezeTableName: true,
+          // prevent creating fields createdAt updatedAt
           timestamps: false,
         },
 
@@ -49,6 +50,29 @@ class Database {
       room_amt: { type: Sequelize.INTEGER },
       square_amt: { type: Sequelize.INTEGER },
       cost: { type: Sequelize.INTEGER },
+    });
+
+    db.account = sequelize.define("account", {
+      user_id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      last_name: { type: Sequelize.STRING(64) },
+      first_name: { type: Sequelize.STRING(64) },
+      email: { type: Sequelize.STRING(64) },
+      phone: { type: Sequelize.STRING(15) },
+    });
+
+    db.booking = sequelize.define("booking", {
+      booking_id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      apartment_id: { type: Sequelize.INTEGER },
+      user_id: { type: Sequelize.INTEGER },
+      profit: { type: Sequelize.INTEGER },
     });
 
     return db;
