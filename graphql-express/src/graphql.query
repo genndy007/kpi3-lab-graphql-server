@@ -23,12 +23,8 @@
   }
 }
 
-// delete
-{
-  remove_apartment(apartment_id: 65) {
-    apartment_id
-  }
-}
+
+
 
 // MUTATIONS 
 
@@ -44,5 +40,53 @@ mutation {
     cost: 213455,
   }) {
     apartment_id
+  }
+}
+
+mutation {
+  add_account(input: {
+    last_name: "kochev",
+    first_name: "gennadii",
+    email: "gena@gmail.com",
+    phone: "+380661111111",
+  }) {
+    user_id
+  }
+}
+
+mutation {
+  add_booking(input: {
+    apartment_id: 11,
+    user_id: 1,
+    profit: 2000,
+  }) {
+    booking_id
+  }
+}
+
+
+mutation {
+  change_apartment(input: {
+    street: "yangela"
+  }, apartment_id: 9) {
+    city
+    street
+    house_num
+    room_amt
+    square_amt
+    cost
+  }
+}
+
+
+mutation {
+  remove_apartment(apartment_id: 86) {
+    apartment_id
+    city
+    street
+    house_num
+    room_amt
+    square_amt
+    cost
   }
 }
