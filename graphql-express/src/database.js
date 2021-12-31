@@ -19,6 +19,12 @@ class Database {
         dialect: db_config.dialect,
         operatorsAliases: 0,
 
+        define: {
+          // prevent sequelize from pluralizing table names
+          freezeTableName: true,
+          timestamps: false,
+        },
+
         pool: {
           max: db_config.pool.max,
           min: db_config.pool.min,
